@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Turn extends Command {
 
-	double turnValue = 0.5;
+	double turnValue = 0.7;
 	int degrees = 0;
 
 	public Turn() {
@@ -16,7 +16,6 @@ public class Turn extends Command {
 
 	public Turn(double turnValue) {
 		requires(Robot.driveTrain);
-
 		this.turnValue = turnValue;
 	}
 
@@ -32,9 +31,8 @@ public class Turn extends Command {
 	}
 
 	protected void execute() {
-		System.out.println("The robot is at this angle from starting bearing in degrees: " + getAngleOfRotation());
-		System.out.println("The turnValue is " + turnValue);
 		Robot.driveTrain.turn(turnValue);
+		System.out.println("The robot is at this angle from starting bearing in degrees: " + getAngleOfRotation());
 	}
 
 	protected boolean isFinished() {
