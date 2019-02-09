@@ -59,8 +59,7 @@ public class RobotMap {
 
 		driveTrainRobotDrive = new DifferentialDrive(driveTrainLeftMotor, driveTrainRightMotor);
 		driveTrainRobotDrive.setSafetyEnabled(true);
-		driveTrainRobotDrive.setExpiration(0.1);
-		driveTrainRobotDrive.setMaxOutput(1.0);
+		driveTrainRobotDrive.setExpiration(0.02);
 
 		compressor = new Compressor();
 		compressor.setClosedLoopControl(true);
