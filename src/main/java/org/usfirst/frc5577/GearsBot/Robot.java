@@ -11,10 +11,10 @@
 package org.usfirst.frc5577.GearsBot;
 
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -32,7 +32,7 @@ import org.usfirst.frc5577.GearsBot.subsystems.*;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends TimedRobot {
 
     private static final SPI.Port kGyroPort = SPI.Port.kOnboardCS0;
 
@@ -105,10 +105,10 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousInit() {
         autoChooser = new SendableChooser<CommandGroup>();
-        autoChooser.addDefault("Default program", new AutonDriveStraight());
-        autoChooser.addObject("Left", new AutonDriveFromLeft());
-        autoChooser.addObject("Center", new AutonDriveFromCenter());
-        autoChooser.addObject("Right", new AutonDriveFromRight());
+        autoChooser.setDefaultOption("Default program", new AutonDriveStraight());
+        autoChooser.addOption("Left", new AutonDriveFromLeft());
+        autoChooser.addOption("Center", new AutonDriveFromCenter());
+        autoChooser.addOption("Right", new AutonDriveFromRight());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 
         autonomousCommand = (Command) autoChooser.getSelected();
