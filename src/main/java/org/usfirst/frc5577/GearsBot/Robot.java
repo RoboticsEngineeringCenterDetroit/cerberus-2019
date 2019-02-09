@@ -10,6 +10,7 @@
 
 package org.usfirst.frc5577.GearsBot;
 
+import com.analog.adis16448.frc.ADIS16448_IMU;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
@@ -48,6 +49,7 @@ public class Robot extends TimedRobot {
     public static Pneumatics pneumatics;
     public static Lift lift;
     public static ADXRS450_Gyro gyro;
+    public static ADIS16448_IMU imu;
 
     // Camera and Vision
     public static CameraServer cameraServer1;
@@ -68,6 +70,8 @@ public class Robot extends TimedRobot {
         pneumatics = new Pneumatics();
         lift = new Lift();
         gyro = new ADXRS450_Gyro(kGyroPort);
+        imu = new ADIS16448_IMU();
+
         gyro.calibrate();
 
         // OI must be constructed after subsystems. If the OI creates Commands

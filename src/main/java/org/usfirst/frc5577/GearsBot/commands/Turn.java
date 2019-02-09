@@ -28,7 +28,7 @@ public class Turn extends Command {
 	}
 
 	protected void initialize() {
-		Robot.gyro.reset();
+		Robot.imu.reset();
 	}
 
 	protected void execute() {
@@ -43,12 +43,12 @@ public class Turn extends Command {
 
 	protected void end() {
 		System.out.println("Turning has ended!");
-		Robot.gyro.reset();
+		Robot.imu.reset();
 		Robot.driveTrain.stop();
 	}
 
 	private double getAngleOfRotation() {
-		return Robot.gyro.getAngle();
+		return Robot.imu.getAngleX();
 	}
 
 }
