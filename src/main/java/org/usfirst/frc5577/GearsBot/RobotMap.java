@@ -40,7 +40,9 @@ public class RobotMap {
 	public static DoubleSolenoid driveTrainSwitch;
 	public static Encoder leftWheelEncoder;
 	public static Encoder rightWheelEncoder;
-	public static DoubleSolenoid clawSwitch;
+	public static Encoder elevatorEncoder;
+	public static DoubleSolenoid wristSwitch;
+	public static DoubleSolenoid hatchPanelSwitch;
 
 	static void init() {
 
@@ -66,8 +68,10 @@ public class RobotMap {
 
 		driveTrainSwitch = new DoubleSolenoid(0, 1);
 		driveTrainSwitch.set(DoubleSolenoid.Value.kOff);
-		clawSwitch = new DoubleSolenoid(2, 3);
-		clawSwitch.set(DoubleSolenoid.Value.kOff);
+		wristSwitch = new DoubleSolenoid(2, 3);
+		wristSwitch.set(DoubleSolenoid.Value.kOff);
+		hatchPanelSwitch = new DoubleSolenoid(4, 5);
+		hatchPanelSwitch.set(DoubleSolenoid.Value.kOff);
 
 		leftWheelEncoder = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
 		leftWheelEncoder.setDistancePerPulse(.147262);
@@ -77,5 +81,7 @@ public class RobotMap {
 		rightWheelEncoder.setDistancePerPulse(.147262);
 		rightWheelEncoder.setSamplesToAverage(10);
 		rightWheelEncoder.reset();
+
+		// TODO: Set up elevator
 	}
 }

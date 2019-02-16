@@ -4,21 +4,21 @@ import org.usfirst.frc5577.GearsBot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class PlaceCube extends Command {
-	
+public class ShootBall extends Command {
+
 	private double speed = 0.7;
 	private double time = 0;
 
-	public PlaceCube() {
+	public ShootBall() {
 		this(0.8);
 	}
-	
-	public PlaceCube(double speed) {
+
+	public ShootBall(double speed) {
 		requires(Robot.intake);
 		this.speed = speed;
 	}
-	
-	public PlaceCube(double speed, double time) {
+
+	public ShootBall(double speed, double time) {
 		this(speed);
 		this.time = time;
 	}
@@ -32,7 +32,7 @@ public class PlaceCube extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.intake.pushOutCube(speed);
+		Robot.intake.shootOutBall(speed);
 	}
 
 	@Override

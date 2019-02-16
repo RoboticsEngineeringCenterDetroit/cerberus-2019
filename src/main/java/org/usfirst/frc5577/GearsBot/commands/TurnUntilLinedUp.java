@@ -58,7 +58,7 @@ public class TurnUntilLinedUp extends Turn {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (x > -5 || x < 5) {
+    if (x > -2 || x < 2) {
       return true;
     }
     return false;

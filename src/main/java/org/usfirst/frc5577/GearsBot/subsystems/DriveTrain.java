@@ -87,7 +87,10 @@ public class DriveTrain extends Subsystem {
         // robotDrive.arcadeDrive(xBoxCont);
 
         robotDrive.arcadeDrive(xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_Y) * driveTrainSpeed,
-                -xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_X) * driveTrainSpeed, true);
+                -xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_X) * driveTrainSpeed,
+                // -xBoxController.getRawAxis(Robot.oi.RIGHT_AXIS_X) * driveTrainSpeed,
+
+                true);
     }
 
     public void stop() {
