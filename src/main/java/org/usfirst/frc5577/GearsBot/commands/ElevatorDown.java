@@ -15,17 +15,23 @@ public class ElevatorDown extends Command {
 
 	@Override
 	protected void initialize() {
+		Robot.lift.moveLift(-speed);
 	}
 
 	@Override
 	protected void execute() {
-		Robot.lift.MoveLift(speed);
+
 	}
 
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	protected void interrupted() {
+		Robot.lift.moveLift(0);
 	}
 
 }

@@ -78,14 +78,14 @@ public class OI {
 		driverController = new Joystick(0);
 
 		Button rBumperDriver = new JoystickButton(driverController, R_BUMPER);
-		Button dPadUp = new DPadButton(driverController, Direction.UP);
-		Button dPadLeft = new DPadButton(driverController, Direction.LEFT);
-		Button dPadRight = new DPadButton(driverController, Direction.RIGHT);
+		// Button dPadUp = new DPadButton(driverController, Direction.UP);
+		// Button dPadLeft = new DPadButton(driverController, Direction.LEFT);
+		// Button dPadRight = new DPadButton(driverController, Direction.RIGHT);
 
 		rBumperDriver.whenPressed(new ShiftGear());
-		dPadUp.whenPressed(new TurnUntilLinedUp());
-		dPadLeft.whenPressed(new Turn(-30));
-		dPadRight.whenPressed(new Turn(30));
+		// dPadUp.whenPressed(new TurnUntilLinedUp());
+		// dPadLeft.whenPressed(new Turn(-30));
+		// dPadRight.whenPressed(new Turn(30));
 
 		// Manipulator Controller Setup
 		manipulatorController = new Joystick(1);
@@ -98,37 +98,24 @@ public class OI {
 		Button lTriggerManipulator = new JoystickAnalogButton(manipulatorController, LEFT_TRIGGER_AXIS);
 		Button rBumperManipulator = new JoystickButton(manipulatorController, R_BUMPER);
 		Button rTriggerManipulator = new JoystickAnalogButton(manipulatorController, RIGHT_TRIGGER_AXIS);
-		/*
-		 * xButton.whileHeld(new CollectBall(0.5)); xButton.whenReleased(new
-		 * CollectBall(0));
-		 * 
-		 * bButton.whileHeld(new ShootBall(0.5)); bButton.whenReleased(new
-		 * ShootBall(0));
-		 */
+		Button dPadUp = new DPadButton(manipulatorController, Direction.UP);
+		Button dPadDown = new DPadButton(manipulatorController, Direction.DOWN);
 
-		aButton.whileHeld(new ElevatorDown(-0.2));
-		aButton.whenReleased(new ElevatorDown(0));
-
-		yButton.whileHeld(new ElevatorUp(0.40));
-		yButton.whenReleased(new ElevatorUp(0));
+		dPadUp.whileHeld(new ElevatorUp(0.85));
+		dPadDown.whileHeld(new ElevatorDown(0.60));
 
 		lBumperManipulator.whenPressed(new ShiftWrist());
 		lTriggerManipulator.whenPressed(new ShiftHatchPanel());
 
-		rBumperManipulator.whileHeld(new CollectBall(0.5));
-		rBumperManipulator.whenReleased(new CollectBall(0));
+		rBumperManipulator.whileHeld(new LiftArm(0.8));
 
-		rTriggerManipulator.whileHeld(new ShootBall(0.5));
-		rTriggerManipulator.whenReleased(new ShootBall(0));
+		// lBumperManipulator.whileHeld(new LowerArm(0.8));
 
-		// Smart Dashboard Setup
-		SmartDashboard.putData("Practice Auton Driving Straight", new AutonDriveStraight());
-		SmartDashboard.putData("Practice Auton Turning", new AutonTurn());
-		SmartDashboard.putData("Practice Auton UpLift", new AutonUpLift());
-		SmartDashboard.putData("Practice Auton Shoot Cube", new AutonShootCube());
-		SmartDashboard.putData("Practice Auton Driving from Left", new AutonDriveFromLeft());
-		SmartDashboard.putData("Practice Auton Driving from Center", new AutonDriveFromCenter());
-		SmartDashboard.putData("Practice Auton Driving from Right", new AutonDriveFromRight());
+		rTriggerManipulator.whileHeld(new LowerArm(0.8));
+
+		xButton.whileHeld(new IntakeBall(0.8));
+
+		bButton.whileHeld(new ShootBall(0.8));
 	}
 
 }

@@ -3,24 +3,18 @@ package org.usfirst.frc5577.GearsBot.subsystems;
 import org.usfirst.frc5577.GearsBot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.*;
 
 public class Intake extends Subsystem {
+	public Intake() {
+		addChild(RobotMap.blackTalonSRX);
+	}
 
 	public void intakeBall(double speed) {
-
-		RobotMap.talonSRX5.set(ControlMode.PercentOutput, -speed);
-		RobotMap.talonSRX6.set(ControlMode.PercentOutput, speed);
+		RobotMap.blackTalonSRX.set(-speed);
 	}
 
 	public void shootOutBall(double speed) {
-		RobotMap.talonSRX5.set(ControlMode.PercentOutput, speed);
-		RobotMap.talonSRX6.set(ControlMode.PercentOutput, -speed);
-	}
-
-	public void stop() {
-		RobotMap.talonSRX5.set(ControlMode.PercentOutput, 0);
-		RobotMap.talonSRX6.set(ControlMode.PercentOutput, 0);
+		RobotMap.blackTalonSRX.set(speed);
 	}
 
 	@Override

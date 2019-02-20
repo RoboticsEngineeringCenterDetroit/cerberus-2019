@@ -25,19 +25,22 @@ public class ShootBall extends Command {
 
 	@Override
 	protected void initialize() {
-		if (time > 0) {
-			setTimeout(time);
-		}
+		Robot.intake.shootOutBall(speed);
 	}
 
 	@Override
 	protected void execute() {
-		Robot.intake.shootOutBall(speed);
+
 	}
 
 	@Override
 	protected boolean isFinished() {
 		return isTimedOut();
+	}
+
+	@Override
+	protected void interrupted() {
+		Robot.intake.shootOutBall(0);
 	}
 
 }

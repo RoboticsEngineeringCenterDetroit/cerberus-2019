@@ -25,10 +25,12 @@ public class DriveTrain extends Subsystem {
     SpeedController rightMotor = RobotMap.driveTrainRightMotor;
     SpeedController leftMotor = RobotMap.driveTrainLeftMotor;
     DifferentialDrive robotDrive = RobotMap.driveTrainRobotDrive;
-    Encoder leftWheelEncoder = RobotMap.leftWheelEncoder;
-    Encoder rightWheelEncoder = RobotMap.rightWheelEncoder;
-    PIDController leftWheelControl = new PIDController(0.1, 0, 0, leftWheelEncoder, leftMotor);
-    PIDController rightWheelControl = new PIDController(0.1, 0, 0, rightWheelEncoder, rightMotor);
+    // Encoder leftWheelEncoder = RobotMap.leftWheelEncoder;
+    // Encoder rightWheelEncoder = RobotMap.rightWheelEncoder;
+    // PIDController leftWheelControl = new PIDController(0.1, 0, 0,
+    // leftWheelEncoder, leftMotor);
+    // PIDController rightWheelControl = new PIDController(0.1, 0, 0,
+    // rightWheelEncoder, rightMotor);
     SpeedControllerGroup leftmotor = RobotMap.driveTrainLeftMotor;
     SpeedControllerGroup rightmotor = RobotMap.driveTrainRightMotor;
     // controls speed of chassis and the Value of the Decimal is a percentage ex.
@@ -47,19 +49,19 @@ public class DriveTrain extends Subsystem {
     }
 
     public void driveTrainForwardWithDistance(double distance) {
-        leftWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-        leftWheelControl.enable();
-        rightWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-        rightWheelControl.enable();
-        leftWheelControl.setSetpoint(distance);
-        rightWheelControl.setSetpoint(distance);
+        // leftWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+        // leftWheelControl.enable();
+        // rightWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+        // rightWheelControl.enable();
+        // leftWheelControl.setSetpoint(distance);
+        // rightWheelControl.setSetpoint(distance);
         robotDrive.arcadeDrive(0.25, 0);
     }
 
     public void driveTrainFoward(double speed) {
         Timer.delay(0.01);
-        leftWheelControl.setSetpoint(2);
-        rightWheelControl.setSetpoint(2);
+        // leftWheelControl.setSetpoint(2);
+        // rightWheelControl.setSetpoint(2);
         robotDrive.arcadeDrive(speed, 0);
     }
 

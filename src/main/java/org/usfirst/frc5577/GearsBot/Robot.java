@@ -42,9 +42,9 @@ public class Robot extends TimedRobot {
     // Subsystems and Hardware
     public static DriveTrain driveTrain;
     public static Intake intake;
-    public static Climber climber;
+    public static Arm arm;
     public static Pneumatics pneumatics;
-    public static Lift lift;
+    public static Elevator lift;
     public static ADIS16448_IMU imu = new ADIS16448_IMU();
     DigitalInput limitSwitch;
 
@@ -63,9 +63,9 @@ public class Robot extends TimedRobot {
 
         driveTrain = new DriveTrain();
         intake = new Intake();
-        climber = new Climber();
+        arm = new Arm();
         pneumatics = new Pneumatics();
-        lift = new Lift();
+        lift = new Elevator();
         limitSwitch = new DigitalInput(9);
 
         // OI must be constructed after subsystems. If the OI creates Commands
